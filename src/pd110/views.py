@@ -5,7 +5,11 @@ def about(request):
     
     return render(request, "about.html", {})
 
-def tables(request):
+def cata(request):
 
-    return render(request, "tables.html", {})
+    return render(request, "cata.html", {})
+
+def catb(request):
+
+    return render(request, "catb.html", {})
 
