@@ -1,0 +1,14 @@
+/* Show it's not fixed to the top */
+body {
+  min-height: 50rem;
+}
+
+.mb-4, .my-4 {
+  margin-bottom: 0rem !important;
+}
+
+.form-group {
+  margin-bottom: 0rem !important ;
+  padding-right: 10px !important;
+  border-right-width: 10px !important;
+}
