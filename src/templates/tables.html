@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='row justify-content-center'>
+    <div class='col-sm-6 col-sm-offset-3'>
+        <h2 class='text-align-center' ><strong>Tabla posiciones Categoria A</strong></h2>
+                {% comment %} <table class='table'>
+            {% for instance in queryset %}
+                <tr><td>{{ forloop.counter }}</td>
+                <td>{{instance}}</td>
+                <td>{{instance.nombre}}<td>
+                <td>{{instance.timestamp|timesince}} ago<td>
+                <tr><br/>
+            {%endfor%}
+        </table> {% endcomment %}
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                <th scope="col" colspan='4' class='text-align-center'>Tabla A</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td scope="col" >#</th>
+                <th scope="col">Participante</th>
+                <th scope="col" class='text-align-center'>Puntaje</th>
+                <th scope="col" class='text-align-center'>Fechas Jugadas</th>
+                </tr>
+                <tr>
+                <th scope="row">1</th>
+                <td>Lucas</td>
+                <td >9</td>
+                <td>1</td>
+                </tr>
+                <tr>
+                <th scope="row">2</th>
+                <td>Fede</td>
+                <td>8</td>
+                <td>1</td>
+                </tr>
+                    <tr>
+                <th scope="row">3</th>
+                <td>Danel</td>
+                <td>7</td>
+                <td>1</td>
+                </tr>
+                <tr>
+                <th scope="row">4</th>
+                <td>Karu</td>
+                <td>6</td>
+                <td>1</td>
+                </tr>
+                    <tr>
+                <th scope="row">5</th>
+                <td>Caco</td>
+                <td>6</td>
+                <td>1</td>
+                </tr>
+                <tr>
+                <th scope="row">6</th>
+                <td>Inti</td>
+                <td>5</td>
+                <td>1</td>
+                </tr>
+                    <tr>
+                <th scope="row">7</th>
+                <td>Ayma</td>
+                <td>5</td>
+                <td>1</td>
+                </tr>
+                <tr>
+                <th scope="row">8</th>
+                <td>Pepito</td>
+                <td>4</td>
+                <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <br/>
+        <h2 class='text-align-center'><strong>Peliculas ya recomendadas</h2>
+        <br/>
+        <br/>
+        <h2 class='text-align-center'><strong>Fixture</h2>
+        <br/>
+        <br/>
+</div>    
+
+{% endblock %}

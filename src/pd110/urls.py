@@ -18,11 +18,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include,path
 from boletin import views
-from .views import about
+from .views import about , tables
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
+    path('tables/', tables, name='tables'),
     path('contact/', views.contact, name='contact'),
     path('about/', about, name='about'),
     path('', views.home, name='home')

@@ -2,12 +2,16 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+{% block head_title %}Ponele Critica | {{ block.super }}{% endblock %}
 
 <style>
 {% block style %}
 .jumbotron {
     background-color: #e6e7e8 !important;
+}
+
+.img_centered {
+text-align: center;
 }
 {% endblock %}
 </style>
@@ -20,13 +24,43 @@
 
 <div class='row justify-content-center'>
     <div class='col-sm-6'>
-        <h1>Django</h1>
-        <p class="lead">My first app objective is to build a web app simple and elegant in a short period of time</p>
-        <a class="btn btn-lg btn-primary" href="/docs/4.4/components/navbar/" role="button">Suscribe &raquo;</a>
+        <h1>Ponele Critica S4</h1><br/>
+        <h3>Estamos en la temporada 4 de Ponele Critica!</h3><br/><br/><br/>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button">Categoria A</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button">Posiciones &raquo;</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button">Peliculas ya recomendadas &raquo;</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button">Fixture &raquo;</a>
+        <br/><br/>
+        <br/><br/>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button">Categoria B</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button">Posiciones &raquo;</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button">Peliculas ya recomendadas&raquo;</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'tables'%}" role="button" >Fixture &raquo;</a>
+        
     </div>
+    
     <div class='col-sm-6' align="center">
-    <iframe width="660" height="385" src="https://www.youtube.com/embed/yRP0tgMT6AM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    <iframe width="770" height="450" src="https://www.youtube.com/embed/qSu7NizcAzQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     </iframe>
+            <!--Trabajar en el footer-->
+        <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+            <div class="titlebar">
+            <div class="title title--tny">
+            <span>SÍGUENOS</span>
+            </div>
+            </div>
+            <div class="content">
+            <!--FACEBOOK-->
+            <a href="http://facebook.com/Sensacine.Comunidad" target="_blank" class="xXx "><i class="fab fa-facebook fa-3x"></i></a>
+            <!--TWITTER-->
+            <a href="http://twitter.com/sensacine" target="_blank" class="xXx "><i class="fab fa-twitter-square fa-3x" style='color:#01adff;'></i></a>
+            <!-- INSTAGRAM -->
+            <a href="http://www.sensacine.com/servicios/contacto/" class="xXx "><i class="fab fa-instagram-square fa-3x" style='color:#e22396;'></i></a>
+            <!-- GOOGLE + -->
+            <a href="https://plus.google.com/+SensaCine/posts" target="_blank" class="xXx "><i class="fab fa-google-plus fa-3x" style='color:#ec1f27;'></i></a>
+            </div>
+            </div>
+        </div>
     </div>  
     </div>
 </div>
@@ -42,43 +76,33 @@
 {% if request.user.is_staff %}
 <div class='row'>
     <div class='col-sm-3 col-xs-12'>
-    <p class='lead text-align-center'>{{ titulo }}<br/>
+    <p class='lead text-align-center'>Bienvenido!<br/>
         {% if not user.is_authenticated %}
             <form method="POST" action="">{% csrf_token %}
                 {{ form|crispy }}
                 <input class='btn btn-primary' type='submit' value='Suscribe'>
             </form>
-        {% else %}  
-            <i class="fas fa-laptop-code fa-5x" style="padding-top: 30px;"></i>
+        {% else %}
+            <i class="fas fa-film fa-6x" style="padding-top: 20px;"></i>
         {% endif %}
     </p>
     </div>
 <div class='col-sm-3'>
-    <p class='lead text-align-center' >Created with Django and Bootstrap<br/>
-    <i class="fab fa-python fa-5x" style="padding-top: 30px;" ></i> <i class="fab fa-bootstrap fa-5x"></i>
+    <p class='lead text-align-center' >IMDb<br/>
+    <a href="https://www.imdb.com" ><i class="fab fa-imdb fa-6x" style="padding-top: 20px; color:#e2bf3e;"></i></a>
     </p>
 </div>
-<div class='col-sm-3'>
-    <p class='lead text-align-center'>With dedication and love<br/>
-    <i class="fas fa-code-branch fa-5x" style="padding-top: 30px;"></i>
-    </p>
+<div class='col-sm-3 text-align-center'>
+    <p class='lead'>Rotten Tomatoes</p>
+    <a href="https://www.rottentomatoes.com/" ><img src='static/img/fresh.png' style="width:87,5px; height:130px;"/></a>    
 </div>
-<div class='col-sm-3'>
-    <p class='lead text-align-center'>Lucas Pereyra<br/>
-    <i class="fas fa-jedi fa-5x" style="padding-top: 30px;"></i>
-    </p>
+<div class='col-sm-3 text-align-center'>
+    <p class='lead'>Film Affinity</p>
+    <a href=""><img src='static/img/filma.png' style="width: 125px; height:125px;" /></a>
 </div>
 </div>
 <div>
-    <table class='table'>
-        {% for instance in queryset %}
-            <tr><td>{{ forloop.counter }}</td>
-            <td>{{instance}}</td>
-            <td>{{instance.nombre}}<td>
-            <td>{{instance.timestamp|timesince}} ago<td>
-            <tr><br/>
-        {%endfor%}
-    </table>
+
 </div>
 {% else %}
 <div class='row'>
