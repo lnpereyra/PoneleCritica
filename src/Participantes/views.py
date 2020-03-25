@@ -4,13 +4,17 @@ from .models import ParticipantesTorneo
 
 # Create your views here.
 def participantes_view(request):
-    obj = ParticipantesTorneo.objects.get(id=1)
+    # obj = ParticipantesTorneo.objects.all().order_by('puntaje')
+    # context = {
+    #     "nombre": obj.partnombre,
+    #     "apellido": obj.partapellido,
+    #     "puntaje": obj.partpuntaje,
+    #     "categoria": obj.partcat,
+    #     "fechasjug": obj.partjugadas,
+    # }
+    queryset = ParticipantesTorneo.objects.all().order_by('partpuntaje')
     context = {
-        "nombre": obj.partnombre,
-        "apellido": obj.partapellido,
-        "puntaje": obj.partpuntaje,
-        "categoria": obj.partcat,
-        "fechasjug": obj.partjugadas,
+        "queryset": queryset,
     }
 
     return render(request, "test.html" , context)

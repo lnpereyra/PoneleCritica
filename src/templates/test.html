@@ -1,7 +1,44 @@
 {% extends 'base.html' %}
 
+{% block head_title %}Categoria A | {{ block.super }}{% endblock %}
+
 {% block content%}
 
-<h1>{{ nombre }}</h1>
-
+<br/>
+<div class='row justify-content-center'>
+    <div class='col-sm-6 col-sm-offset-3'>
+        <table class="table table-dark table-bordered">        
+            <thead>
+                <tr>
+                <th scope="col" colspan='4' class='text-align-center'>Tabla A</th>
+                </tr>
+            </thead>            
+            <tbody>
+                <tr>
+                <td scope="col" >#</th>
+                <th scope="col">Participante</th>
+                <th scope="col" class='text-align-center'>Puntaje</th>
+                <th scope="col" class='text-align-center'>Fechas Jugadas</th>
+                </tr>
+                <tr>
+                {% for instance in queryset %}
+                <tr><td>{{ forloop.counter }}</td>
+                <td>{{ instance.partnombre }} {{ instance.partapellido }}</td>
+                    {% if instance.partpuntaje == null %}
+                        <td >0</td>
+                    {%else%}
+                        <td >{{ instance.partpuntaje }}</td>
+                    {% endif %}
+                    {% if instance.partjugadas == null %}
+                        <td>0</td>
+                    {% else %}
+                        <td>{{ instance.partjugadas }}</td>
+                    {% endif %}
+                </tr>
+                <tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 {% endblock %}

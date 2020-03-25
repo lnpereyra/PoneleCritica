@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 class ParticipantesTorneo(models.Model):
-    partid = models.IntegerField()
-    partnombre = models.CharField(max_length=20)
-    partapellido = models.CharField(max_length=20)
-    partpuntaje = models.IntegerField()
-    partjugadas = models.IntegerField() 
-    partcat = models.CharField(max_length=1)
+    partid = models.IntegerField(null=True)
+    partnombre = models.CharField(max_length=20,verbose_name='Nombre')
+    partapellido = models.CharField(max_length=20,verbose_name='Apellido')
+    partpuntaje = models.IntegerField(null=True)
+    partjugadas = models.IntegerField(null=True) 
+    partcat = models.CharField(max_length=1,verbose_name='Categoria')
 
 class PeliculasRecomendadas(models.Model):
     pelinombre = models.CharField(max_length=50)
