@@ -18,13 +18,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include,path
 from boletin import views
-from Participantes.views import participantes_view
+from Participantes.views import participantes_view , participantes_list
 from .views import about ,cata, catb
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
     path('test/', participantes_view ,name='test'),
+    path('participantes/', participantes_list, name='partlist'),
     path('cata/', cata, name='cata'),
     path('catb/', catb, name='catb'),
     path('contact/', views.contact, name='contact'),

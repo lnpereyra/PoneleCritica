@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                 {% for instance in queryset %}
-                <tr><td>{{ forloop.counter }}</td>
+                <tr><td style='width:1%;'>{{ forloop.counter }}</td>
                 <td>{{ instance.partnombre }} {{ instance.partapellido }}</td>
                     {% if instance.partpuntaje == null %}
                         <td >0</td>
@@ -39,6 +39,26 @@
             </tbody>
             {% endfor %}
         </table>
+        <h2 class='text-align-center'><strong>Fixture</h2>
+        <br/>
+        <div class='col-sm-6 col-sm-offset-3'>
+        <table class="table table-dark table-bordered"> 
+            <tr>   
+                 <th scope="col" colspan='3' class='text-align-center'>Fecha 1</th>
+            </tr>
+            {% for instance in queryset %}
+            <tr>
+                <td></td>
+                <td class='text-align-center' style='width:20%;'>vs</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+                <h2 class='text-align-center'><strong>Peliculas ya recomendadas</h2>
+        <br/>
+        <br/>
+        <br/>
     </div>
 </div>
 {% endblock %}

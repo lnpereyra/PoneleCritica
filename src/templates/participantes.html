@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='row justify-content-center'>
+    <div class='col-sm-6 col-sm-offset-3'>
+    <br/>
+    <br/>
+    <br/>
+        <h1 class='text-align-center'><strong>Participantes</strong></h1>
+        <h2 >Categoria A</h2>
+        <br/>
+        {% for instance in queryset %}
+            {% if instance.partcat == 'A'%}
+                <p>{{ instance.partnombre }} {{ instance.partapellido }}</p>
+            {% endif %}
+        {% endfor %}
+        <p></p>
+        <p></p>
+        <p></p>
+        <h2 >Categoria B</h2>        
+        <br/>
+        {% for instance in queryset %}
+            {% if instance.partcat == 'B'%}
+                <p>{{ instance.partnombre }} {{ instance.partapellido }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>    
+
+{% endblock %}

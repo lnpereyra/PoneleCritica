@@ -12,9 +12,17 @@ def participantes_view(request):
     #     "categoria": obj.partcat,
     #     "fechasjug": obj.partjugadas,
     # }
-    queryset = ParticipantesTorneo.objects.all().order_by('partpuntaje')
+    queryset = ParticipantesTorneo.objects.all().order_by('-partpuntaje')
     context = {
         "queryset": queryset,
     }
 
     return render(request, "test.html" , context)
+
+def participantes_list(request):
+    queryset = ParticipantesTorneo.objects.all().order_by('partnombre')
+    context = {
+        "queryset": queryset,
+    }
+
+    return render(request,'participantes.html',context)
