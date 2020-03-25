@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'boletin',
     'crispy_forms',
     'registration',
+    'Participantes',
 ]
 
 MIDDLEWARE = [
